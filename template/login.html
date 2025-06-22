@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+<form class="log" method="post">
+    {% csrf_token %} <br> {% for fm in form %} {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br> {% endfor %} {% for messages in message %}
+    <p style="color: red;">{{message}} </p>
+    {% endfor %}
+    <input class=sub type="submit" value="submit"> &nbsp;
+    <a class="msg" href="{% url 'sign' %}">sign_up</a>
+</form>
+
+{% include 'footer.html' %}
